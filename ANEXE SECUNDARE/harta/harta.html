@@ -1,0 +1,464 @@
+<!doctype html>
+<html> 
+    <head>
+        <title>Regiunea de Nord-Est Romania</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://scopertemolise.000webhostapp.com/ekko-lightbox.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"></script>
+        <script src="https://scopertemolise.000webhostapp.com/ekko-lightbox.js"></script>  
+        <!--<link rel="stylesheet" href="ekko-lightbox.css">-->
+        <!--<script src="ekko-lightbox.js"></script>-->
+        <!--ekko-lightbox.css / ekko-lightbox.js  locale need download le download , -->
+    </head>
+    <body>
+        <style>
+        #map_moldova{
+            height:850px;  
+            width:100%; 
+            cursor:pointer; 
+        }  
+        .map_img{ 
+            width:300px;
+            height:240px;
+            border-radius:5%; 
+        }
+        .leaflet-popup-content {
+            margin: 13px 19px;
+            line-height: 1.4;
+            }
+        </style>
+        <div id="map_moldova"></div>
+        <script>
+            var maps = L.map('map_moldova',{maxZoom:12,minZoom:7});
+          var OpenMapSurfer_Roads = L.tileLayer('https://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}', {
+	        maxZoom: 20,
+	        attribution: 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(maps);
+        maps.setView([46.702202, 27.202148],8);
+        maps.dragging.enable();
+        maps.touchZoom.enable();
+        maps.doubleClickZoom.enable();
+        maps.scrollWheelZoom.disable();
+        maps.boxZoom.enable();
+        maps.keyboard.enable();
+        if (maps.tap) maps.tap.enable();
+        document.getElementById('map_moldova').style.cursor='grab';
+        /*Toate imaginile au fost preluate sub forma de cdn*/
+        var roumania_nord_est = {
+            "type":"FeatureCollection",
+            "features":[
+                        {
+                        "type":"Feature",
+                            "properties":{
+                                /*In popupContent se afla <strong>Numele Atractiei</strong> dupa vine <a> care are 3 atribute: data-toggle="lightbox" care se conecteaza la ekko,data-title si data-footer*/
+                                "popupContent":'<strong>Muzeul Mănăstirii Putna</strong><br />Strada Principală 201, Putna 727455<br /><br /><a href="https://scopertemolise.000webhostapp.com/images/moldova_map_img/manastirea_putna.jpg" data-toggle="lightbox" data-title="Mănăstirii Putna" data-footer="Strada Principală 201, Putna 727455"><img src="https://scopertemolise.000webhostapp.com/images/moldova_map_img/manastirea_putna.jpg" alt="Muzeul Mănăstirii Putna" class="map_img"></a>',
+                                "name_attraction":"manastirea_putna",
+                            },
+                            "geometry":{
+                                "type":"Point",
+                                "coordinates":[25.5960695 ,47.8661261],
+                            },
+                        },
+                        {
+                            "type":"Feature",
+                            "properties":{
+                                "popupContent":'<strong>Manastirea Voronet</strong><br />Strada Voroneț 166, Voroneț 725301<br /><br /><a href="https://scopertemolise.000webhostapp.com/images/moldova_map_img/Monastyr_Vorone%C8%9B.jpg" data-toggle="lightbox" data-title="Manastirea Voronet" data-footer="Strada Voroneț 166, Voroneț 725301"><img src="https://scopertemolise.000webhostapp.com/images/moldova_map_img/Monastyr_Vorone%C8%9B.jpg" alt="Manastirea Voronet" class="map_img"></a>',
+                                "name_attraction":"manastirea_voronet",
+                            },
+                            "geometry":{
+                              "type":"Point",
+                              "coordinates":[25.8641264 ,47.5170532],
+                            },
+                        },
+                        {
+                            "type":"Feature",
+                            "properties":{
+                                "popupContent":'<strong>Cheile si Cascada Slanicului</strong><br />DN12B, Slănic Moldova<br /><br /><a href="https://scopertemolise.000webhostapp.com/images/moldova_map_img/cascada_slanicului.jpg" data-toggle="lightbox" data-title="Cheile si Cascada Slanicului" data-footer="DN12B, Slănic Moldova"><img src="https://scopertemolise.000webhostapp.com/images/moldova_map_img/cascada_slanicului.jpg" alt="Cheile si Cascada Slanicului" class="map_img"></a>',
+                                "name_attraction":"cascada_putna",
+                            },
+                            "geometry":{
+                              "type":"Point",
+                              "coordinates":[26.42125 ,46.197003],
+                            },
+                        },
+                         {
+                            "type":"Feature",
+                            "properties":{
+                                "popupContent":'<strong>Palatul Culturii din Iași</strong><br />Piata, Bulevardul Ștefan cel Mare și Sfânt 1, Iași <br /><br /><a href="https://scopertemolise.000webhostapp.com/images/moldova_map_img/Palatul_Culturii_Ia%C8%99i.jpg" data-toggle="lightbox" data-title="Palatul Culturii din Iași" data-footer="Piata, Bulevardul Ștefan cel Mare și Sfânt 1, Iași "><img src="https://scopertemolise.000webhostapp.com/images/moldova_map_img/Palatul_Culturii_Ia%C8%99i.jpg" alt="Palatul Culturii din Iași" class="map_img"></a>',
+                                "name_attraction":"palatul_culturi",
+                            },
+                            "geometry":{
+                              "type":"Point",
+                              "coordinates":[27.587019 ,47.157287],
+                            },
+                        },
+                        {
+                            "type":"Feature",
+                            "properties":{
+                                "popupContent":'<strong>Observatorul Astronomic "Victor Anestin"</strong><br />Strada Ion Ghelu Destelnica 8, Bacău <br /><br /><a href="https://scopertemolise.000webhostapp.com/images/moldova_map_img/planetariu%20observator%20astronomic%20bacau%20.jpg" data-toggle="lightbox" data-title="Observatorul Astronomic "Victor Anestin" data-footer="Strada Ion Ghelu Destelnica 8, Bacău"><img src="https://scopertemolise.000webhostapp.com/images/moldova_map_img/planetariu%20observator%20astronomic%20bacau%20.jpg" alt="Palatul Culturii din Iași" class="map_img"></a>',
+                                "name_attraction":"observator_bacau",
+                            },
+                            "geometry":{
+                              "type":"Point",
+                              "coordinates":[26.9040695 ,46.5656534],
+                            },
+                        },
+                        {
+                            "type":"Feature",
+                            "properties":{
+                                "popupContent":'<strong>Parcul Național Ceahlău"</strong><br /><br /><a href="https://scopertemolise.000webhostapp.com/images/moldova_map_img/31086.jpeg" data-toggle="lightbox" data-title="Parcul Național Ceahlău"><img src="https://scopertemolise.000webhostapp.com/images/moldova_map_img/31086.jpeg" alt="Parcul Național Ceahlău" class="map_img"></a>',
+                                "name_attraction":"parcul_national_ceahlau",
+                            },
+                            "geometry":{
+                              "type":"Point",
+                              "coordinates":[25.9270832 ,46.958999],
+                            },
+                        },
+                        {
+                            "type":"Feature",
+                            "properties":{
+                                "popupContent":'<strong>Complexul Muzeal de Științele Naturii "Răsvan Angheluţă" Galați</strong><br />Strada Regimentul 11 Siret 6A, Galați 800340<br /><br /><a href="https://scopertemolise.000webhostapp.com/images/moldova_map_img/Complexul-Muzeal-de-Stiintele-Naturii-Galati.jpg" data-toggle="lightbox" data-title="Complexul Muzeal de Științele Naturii "Răsvan Angheluţă" Galați" data-footer="Strada Regimentul 11 Siret 6A, Galați 800340"><img src="https://scopertemolise.000webhostapp.com/images/moldova_map_img/Complexul-Muzeal-de-Stiintele-Naturii-Galati.jpg" alt="Complexul Muzeal de Științele Naturii "Răsvan Angheluţă" Galați" class="map_img"></a>',
+                                "name_attraction":"complex_muzeal_galati",
+                            },
+                            "geometry":{
+                              "type":"Point",
+                              "coordinates":[28.0322351 ,45.4192313],
+                            },
+                        },
+                        {
+                            "type":"Feature",
+                            "properties":{
+                                "popupContent":'<strong>Muzeul Județean Ștefan cel Mare</strong><br />Strada Hagi Chiriac, Vaslui 730240<br /><br /><a href="https://scopertemolise.000webhostapp.com/images/moldova_map_img/MuzeulStefancelMare-ww.jpg" data-toggle="lightbox" data-title="Muzeul Județean Ștefan cel Mare" data-footer="Strada Hagi Chiriac, Vaslui 730240"><img src="https://scopertemolise.000webhostapp.com/images/moldova_map_img/MuzeulStefancelMare-ww.jpg" alt="Muzeul Județean Ștefan cel Mare" class="map_img"></a>',
+                                "name_attraction":"complex_muzeal_vaslui",
+                            },
+                            "geometry":{
+                              "type":"Point",
+                              "coordinates":[27.7307421 ,46.638703],
+                            },
+                        },
+                        {
+                            "type":"Feature",
+                            "properties":{
+                                "popupContent":'<strong>Grădina Zoologică Bârlad</strong><br />Bulevardul Republicii, Bârlad<br /><br /><a href="https://scopertemolise.000webhostapp.com/images/moldova_map_img/gradina_zoologica_barlad.jpg" data-toggle="lightbox" data-title="Grădina Zoologică Bârlad" data-footer="Bulevardul Republicii, Bârlad"><img src="https://scopertemolise.000webhostapp.com/images/moldova_map_img/gradina_zoologica_barlad.jpg" alt="Grădina Zoologică Bârlad" class="map_img"></a>',
+                                  "name_attraction":"zoologica_barlad",
+                            },
+                            "geometry":{
+                              "type":"Point",
+                              "coordinates":[27.675633 ,46.244169],
+                            },
+                        },
+                        {
+                            "type":"Feature",
+                            "properties":{
+                                "popupContent":'<strong>Cetatea Nouă a Romanului</strong><br />DJ207D ,Roman<br /><br /><a href="https://scopertemolise.000webhostapp.com/images/moldova_map_img/cetatea_roman.jpg" data-toggle="lightbox" data-title="Cetatea Nouă a Romanului" data-footer="DJ207D ,Roman"><img src="https://scopertemolise.000webhostapp.com/images/moldova_map_img/cetatea_roman.jpg" alt="Cetatea Nouă a Romanului" class="map_img"></a>',
+                                  "name_attraction":"cetatea_noua_romanului",
+                            },
+                            "geometry":{
+                              "type":"Point",
+                              "coordinates":[26.9844268 ,46.912059],
+                            },
+                        },
+                        {
+                            "type":"Feature",
+                            "properties":{
+                                "popupContent":'<strong>Cetatea Neamt</strong><br />Strada Cetăţii, Târgu Neamț 615200<br /><br /><a href="https://scopertemolise.000webhostapp.com/images/moldova_map_img/cetatea-neamt-.jpg" data-toggle="lightbox" data-title="Cetatea Neamt" data-footer="Strada Cetăţii, Târgu Neamț 615200"><img src="https://scopertemolise.000webhostapp.com/images/moldova_map_img/cetatea-neamt-.jpg" alt="Cetatea Neamt" class="map_img"></a>',
+                                  "name_attraction":"cetatea_neamt",
+                            },
+                            "geometry":{
+                              "type":"Point",
+                              "coordinates":[26.343467 ,47.2144486],
+                            },
+                        },
+                        {
+                            "type":"Feature",
+                            "properties":{
+                                "popupContent":'<strong>Parcul Natural Vânători-Neamț</strong><br /><br /><a href="https://scopertemolise.000webhostapp.com/images/moldova_map_img/03-parcul-national-vanatori.jpg" data-toggle="lightbox" data-title="Parcul Natural Vânători-Neamț"><img src="https://scopertemolise.000webhostapp.com/images/moldova_map_img/03-parcul-national-vanatori.jpg" alt="Parcul Natural Vânători-Neamț" class="map_img"></a>',
+                                  "name_attraction":"vanatori_neamt",
+                            },
+                            "geometry":{
+                              "type":"Point",
+                              "coordinates":[26.2025099 ,47.1661437],
+                            },
+                        },
+                        {
+                            "type":"Feature",
+                            "properties":{
+                                "popupContent":'<strong>Cheile Bicazului</strong><br />DN12C<br /><br /><a href="https://scopertemolise.000webhostapp.com/images/moldova_map_img/cheile_bicazului.jpg" data-toggle="lightbox" data-title="Cheile Bicazului" data-footer="DN12C"><img src="https://scopertemolise.000webhostapp.com/images/moldova_map_img/cheile_bicazului.jpg" alt="Cheile Bicazului" class="map_img"></a>',
+                                  "name_attraction":"cheile_bicazului",
+                            },
+                            "geometry":{
+                              "type":"Point",
+                              "coordinates":[25.905247 ,46.839528],
+                            },
+                        },
+                        {
+                            "type":"Feature",
+                            "properties":{
+                                "popupContent":'<strong>Parcul Natural Putna - Vrancea</strong><br /><br /><a href="https://scopertemolise.000webhostapp.com/images/moldova_map_img/putna_vrancea.jpg" data-toggle="lightbox" data-title="Parcul Natural Putna - Vrancea"><img src="https://scopertemolise.000webhostapp.com/images/moldova_map_img/putna_vrancea.jpg" alt="Parcul Natural Putna - Vrancea" class="map_img"></a>',
+                                  "name_attraction":"putna_vrancea",
+                            },
+                            "geometry":{
+                              "type":"Point",
+                              "coordinates":[26.6644365 ,45.9093722],
+                            },
+                        },
+                        {
+                            "type":"Feature",
+                            "properties":{
+                                "popupContent":'<strong>Focul Viu de la Andreiașu de Jos</strong><br />DC114, Andreiașu de Jos<br /><br /><a href="https://scopertemolise.000webhostapp.com/images/moldova_map_img/627x0.jpg" data-toggle="lightbox" data-title="Focul Viu de la Andreiașu de Jos" data-footer="DC114, Andreiașu de Jos"><img src="https://scopertemolise.000webhostapp.com/images/moldova_map_img/627x0.jpg" alt="Focul Viu de la Andreiașu de Jos" class="map_img"></a>',
+                                  "name_attraction":"focul_andreiasu",
+                            },
+                            "geometry":{
+                              "type":"Point",
+                              "coordinates":[26.8327481 ,45.7508376],
+                            },
+                        },
+                        {
+                            "type":"Feature",
+                            "properties":{
+                                "popupContent":'<strong>Muzeul Unirii</strong><br />Strada Republicii 30, Focșani<br /><br /><a href="https://scopertemolise.000webhostapp.com/images/moldova_map_img/muzeul_unirii.jpg" data-toggle="lightbox" data-title="Muzeul Unirii" data-footer="Strada Republicii 30, Focșani"><img src="https://scopertemolise.000webhostapp.com/images/moldova_map_img/muzeul_unirii.jpg" alt="Muzeul Unirii" class="map_img"></a>',
+                                  "name_attraction":"muzeul_unirii",
+                            },
+                            "geometry":{
+                              "type":"Point",
+                              "coordinates":[27.190234 ,45.698776],
+                            },
+                        },
+                        {
+                            "type":"Feature",
+                            "properties":{
+                                "popupContent":'<strong>Cetatea de Scaun a Sucevei</strong><br />Aleea Cetății, Suceava<br /><br /><a href="https://scopertemolise.000webhostapp.com/images/moldova_map_img/16-9-Cetatea-Suceava.jpg" data-toggle="lightbox" data-title="Cetatea de Scaun a Sucevei" data-footer="Aleea Cetății, Suceava"><img src="https://scopertemolise.000webhostapp.com/images/moldova_map_img/16-9-Cetatea-Suceava.jpg" alt="Cetatea de Scaun a Sucevei" class="map_img"></a>',
+                                  "name_attraction":"cetatea_suceava",
+                            },
+                            "geometry":{
+                              "type":"Point",
+                              "coordinates":[26.270285 ,47.644979],
+                            },
+                        },
+                        {
+                            "type":"Feature",
+                            "properties":{
+                                "popupContent":'<strong>Casa Memorială <q>Nicolae Iorga</q></strong><br />Strada George Enescu 3, Vălenii de Munte 106400<br /><br /><a href="https://scopertemolise.000webhostapp.com/images/moldova_map_img/6912501_01.jpg" data-toggle="lightbox" data-title="Casa Memorială <q>Nicolae Iorga</q>" data-footer="Strada George Enescu 3, Vălenii de Munte 106400"><img src="https://scopertemolise.000webhostapp.com/images/moldova_map_img/6912501_01.jpg" alt="Casa Memorială Nicolae Iorga" class="map_img"></a>',
+                                  "name_attraction":"cetatea_suceava",
+                            },
+                            "geometry":{
+                              "type":"Point",
+                              "coordinates":[26.66296 ,47.737851],
+                            },
+                        }
+                ]
+        };
+        
+        function romanianMD(object,latlng){
+            switch(object.properties["name_attraction"]){
+                
+                case "manastirea_putna":/*atributul dupa care sunt atribuite icons pe harta preloat cu ajutorul <<object.properties["name_attraction"]>>*/
+                    var manastirea_putna_icon = new L.icon({
+                        iconUrl:"https://scopertemolise.000webhostapp.com/icon_map/photo-camera-point-128.png",/*cdn de la scoperte molise pt imaginea iconului*/
+                        iconSize:[45 ,45],
+                        iconAnchor:[22 ,34],
+                        popupAnchor:[1 ,-35],
+                    });
+                return L.marker(latlng,{icon:manastirea_putna_icon});
+                
+                case "manastirea_voronet":
+                    var manastirea_voronet_icon = new L.icon({
+                        iconUrl:"https://scopertemolise.000webhostapp.com/icon_map/photo-camera-point-128.png",
+                        iconSize:[45 ,45],
+                        iconAnchor:[22 ,34],
+                        popupAnchor:[1 ,-35],
+                    });
+                return L.marker(latlng,{icon:manastirea_voronet_icon});
+                
+                case "cascada_putna":
+                    var cascada_putna_icon = new L.icon({
+                        iconUrl:"https://scopertemolise.000webhostapp.com/icon_map/photo-camera-point-128.png",
+                        iconSize:[45 ,45],
+                        iconAnchor:[22 ,34],
+                        popupAnchor:[1 ,-35],
+                    });
+                return L.marker(latlng,{icon:cascada_putna_icon}); 
+                
+                case "palatul_culturi":
+                    var palatul_culturi_icon = new L.icon({
+                        iconUrl:"https://scopertemolise.000webhostapp.com/icon_map/photo-camera-point-128.png",
+                        iconSize:[45 ,45],
+                        iconAnchor:[22 ,34],
+                        popupAnchor:[1 ,-35],
+                    });
+                return L.marker(latlng,{icon:palatul_culturi_icon}); 
+                
+                 case "observator_bacau":
+                    var observator_bacau_icon = new L.icon({
+                        iconUrl:"https://scopertemolise.000webhostapp.com/icon_map/photo-camera-point-128.png",
+                        iconSize:[45 ,45],
+                        iconAnchor:[22 ,34],
+                        popupAnchor:[1 ,-35],
+                    });
+                return L.marker(latlng,{icon:observator_bacau_icon}); 
+                
+                 case "parcul_national_ceahlau":
+                    var parcul_national_ceahlau_icon = new L.icon({
+                        iconUrl:"https://scopertemolise.000webhostapp.com/icon_map/photo-camera-point-128.png",
+                        iconSize:[45 ,45],
+                        iconAnchor:[22 ,34],
+                        popupAnchor:[1 ,-35],
+                    });
+                return L.marker(latlng,{icon:parcul_national_ceahlau_icon}); 
+                
+                case "complex_muzeal_galati":
+                    var complex_muzeal_galati_icon = new L.icon({
+                        iconUrl:"https://scopertemolise.000webhostapp.com/icon_map/photo-camera-point-128.png",
+                        iconSize:[45 ,45],
+                        iconAnchor:[22 ,54],
+                        popupAnchor:[1 ,-55],
+                    });
+                return L.marker(latlng,{icon:complex_muzeal_galati_icon});
+                
+                case "complex_muzeal_vaslui":
+                    var complex_muzeal_vaslui_icon = new L.icon({
+                        iconUrl:"https://scopertemolise.000webhostapp.com/icon_map/photo-camera-point-128.png",
+                        iconSize:[45 ,45],
+                        iconAnchor:[22 ,34],
+                        popupAnchor:[1 ,-35],
+                    });
+                return L.marker(latlng,{icon:complex_muzeal_vaslui_icon}); 
+             
+              case "zoologica_barlad":
+                    var gradina_zoologica_barlad_icon = new L.icon({
+                        iconUrl:"https://scopertemolise.000webhostapp.com/icon_map/photo-camera-point-128.png",
+                        iconSize:[45 ,45],
+                        iconAnchor:[22 ,34],
+                        popupAnchor:[1 ,-35],
+                    });
+                return L.marker(latlng,{icon:gradina_zoologica_barlad_icon}); 
+                
+                case "cetatea_noua_romanului":
+                    var cetatea_noua_romanului_icon = new L.icon({
+                        iconUrl:"https://scopertemolise.000webhostapp.com/icon_map/photo-camera-point-128.png",
+                        iconSize:[45 ,45],
+                        iconAnchor:[22 ,34],
+                        popupAnchor:[1 ,-35],
+                    });
+                return L.marker(latlng,{icon:cetatea_noua_romanului_icon}); 
+                
+                case "cetatea_neamt":
+                    var cetatea_neamt_icon = new L.icon({
+                        iconUrl:"https://scopertemolise.000webhostapp.com/icon_map/photo-camera-point-128.png",
+                        iconSize:[40 ,40],
+                        iconAnchor:[22 ,34],
+                        popupAnchor:[1 ,-35],
+                    });
+                return L.marker(latlng,{icon:cetatea_neamt_icon});
+                
+            
+            case "vanatori_neamt":
+                    var vanatori_neamt_icon = new L.icon({
+                        iconUrl:"https://scopertemolise.000webhostapp.com/icon_map/photo-camera-point-128.png",
+                        iconSize:[40 ,40],
+                        iconAnchor:[22 ,34],
+                        popupAnchor:[1 ,-35],
+                    });
+                return L.marker(latlng,{icon:vanatori_neamt_icon});
+                
+                case "cheile_bicazului":
+                    var cheile_bicazului_icon = new L.icon({
+                        iconUrl:"https://scopertemolise.000webhostapp.com/icon_map/photo-camera-point-128.png",
+                        iconSize:[40 ,40],
+                        iconAnchor:[18 ,24],
+                        popupAnchor:[-12 ,-25],
+                    });
+                return L.marker(latlng,{icon:cheile_bicazului_icon});
+                
+                case "putna_vrancea":
+                    var putna_vrancea_icon = new L.icon({
+                        iconUrl:"https://scopertemolise.000webhostapp.com/icon_map/photo-camera-point-128.png",
+                        iconSize:[45 ,45],
+                        iconAnchor:[22 ,34],
+                        popupAnchor:[2 ,-35],
+                    });
+                return L.marker(latlng,{icon:putna_vrancea_icon});
+                
+                case "focul_andreiasu":
+                    var focul_andreiasu_icon = new L.icon({
+                        iconUrl:"https://scopertemolise.000webhostapp.com/icon_map/photo-camera-point-128.png",
+                        iconSize:[45 ,45],
+                        iconAnchor:[22 ,34],
+                        popupAnchor:[1 ,-35],
+                    });
+                return L.marker(latlng,{icon:focul_andreiasu_icon});
+                
+                case "muzeul_unirii":
+                    var muzeul_unirii_icon = new L.icon({
+                        iconUrl:"https://scopertemolise.000webhostapp.com/icon_map/photo-camera-point-128.png",
+                        iconSize:[45 ,45],
+                        iconAnchor:[22 ,34],
+                        popupAnchor:[2 ,-35],
+                    });
+                return L.marker(latlng,{icon:muzeul_unirii_icon});
+                
+                case "cetatea_suceava":
+                    var cetatea_suceava_icon = new L.icon({
+                        iconUrl:"https://scopertemolise.000webhostapp.com/icon_map/photo-camera-point-128.png",
+                        iconSize:[45 ,45],
+                        iconAnchor:[22 ,34],
+                        popupAnchor:[2 ,-35],
+                    });
+                return L.marker(latlng,{icon:cetatea_suceava_icon});
+                
+                case "casa_memoriala_iorga":
+                    var casa_memoriala_iorga_icon = new L.icon({
+                        iconUrl:"https://scopertemolise.000webhostapp.com/icon_map/photo-camera-point-128.png",
+                        iconSize:[45 ,45],
+                        iconAnchor:[22 ,34],
+                        popupAnchor:[2 ,-35],
+                    });
+                return L.marker(latlng,{icon:casa_memoriala_iorga_icon});
+            }
+        }    
+        
+        L.geoJson(roumania_nord_est, {
+            pointToLayer: romanianMD,
+            onEachFeature: function (object, content) { 
+            content.bindPopup(object.properties.popupContent);
+    }
+    }).addTo(maps);
+        
+    /*JavaScript code pentru delimitarea granitei.*/    
+      var romania_moldova_borders = [{
+          "type":"LineString",
+          "coordinates":[[28.212204 ,45.467114],[28.194008 ,45.446162],[28.193321 ,45.425925],[28.192291 ,45.414599],[28.185425 ,45.41243],[28.135986 ,45.435322],[28.115044 ,45.44014],[28.086891 ,45.438213],[28.039169 ,45.416527],[28.029385 ,45.402307],[28.013849 ,45.400499],[28.005867 ,45.39622],[27.994881 ,45.400137],[27.988014 ,45.392182],[27.976341 ,45.39628],[27.942352 ,45.405923],[27.92038 ,45.405682],[27.883301 ,45.420142],[27.881756 ,45.417913],[27.882442 ,45.414539],[27.870941 ,45.41725],[27.858582 ,45.397486],[27.817383 ,45.395557],[27.785797 ,45.4052],[27.783051 ,45.421588],[27.741852 ,45.414358],[27.748718 ,45.447607],[27.733269 ,45.442308],[27.730522 ,45.451702],[27.711296 ,45.447848],[27.710438 ,45.450497],[27.718334 ,45.455435],[27.717733 ,45.459288],[27.706232 ,45.46302],[27.692242 ,45.4629],[27.685547 ,45.461335],[27.681942 ,45.467956],[27.693443 ,45.480114],[27.659454 ,45.472411],[27.663574 ,45.489502],[27.655334 ,45.490946],[27.654648 ,45.479151],[27.636108 ,45.476503],[27.629242 ,45.46591],[27.608643 ,45.462057],[27.597656 ,45.485169],[27.559204 ,45.492871],[27.49054 ,45.440863],[27.498093 ,45.436045],[27.485046 ,45.429781],[27.489853 ,45.425925],[27.427368 ,45.404235],[27.432861 ,45.393628],[27.400589 ,45.377232],[27.393379 ,45.382778],[27.378273 ,45.37482],[27.354584 ,45.371443],[27.307205 ,45.374338],[27.305145 ,45.367102],[27.272186 ,45.376749],[27.26326 ,45.41966],[27.279053 ,45.433154],[27.277679 ,45.452424],[27.25708 ,45.446644],[27.229614 ,45.425444],[27.209015 ,45.437972],[27.16095 ,45.417732],[27.118378 ,45.441826],[27.122498 ,45.464465],[27.101898 ,45.471688],[27.063446 ,45.448571],[27.016754 ,45.471688],[26.971436 ,45.521744],[26.904144 ,45.531365],[26.891785 ,45.521263],[26.82312 ,45.517895],[26.790161 ,45.544831],[26.737976 ,45.552525],[26.691284 ,45.587134],[26.625366 ,45.637087],[26.595154 ,45.619801],[26.573868 ,45.634206],[26.550522 ,45.628925],[26.541595 ,45.639007],[26.527863 ,45.639968],[26.438599 ,45.73686],[26.433105 ,45.782848],[26.383667 ,45.801999],[26.372681 ,45.861325],[26.38504 ,45.868975],[26.378174 ,45.914855],[26.394653 ,45.921543],[26.38916 ,45.956878],[26.433105 ,45.987421],[26.433105 ,46.001732],[26.446152 ,46.017946],[26.438255 ,46.040948],[26.424866 ,46.063703],[26.431732 ,46.079899],[26.424866 ,46.097995],[26.387787 ,46.093234],[26.339722 ,46.117038],[26.342468 ,46.157005],[26.328735 ,46.180781],[26.339722 ,46.206448],[26.317749 ,46.236853],[26.260071 ,46.244451],[26.254578 ,46.274834],[26.290283 ,46.333654],[26.266937 ,46.34598],[26.242218 ,46.341239],[26.202393 ,46.301406],[26.141968 ,46.316584],[26.185913 ,46.377254],[26.183167 ,46.403776],[26.100769 ,46.413245],[26.073303 ,46.40567],[25.977173 ,46.434071],[26.021118 ,46.460566],[26.016312 ,46.477118],[26.005325 ,46.482792],[26.019402 ,46.492247],[26.069183 ,46.494611],[26.074677 ,46.51068],[26.06781 ,46.526745],[26.032104 ,46.54375],[26.034851 ,46.570191],[25.985413 ,46.607941],[26.007385 ,46.639065],[25.993652 ,46.672056],[25.974426 ,46.694667],[25.907135 ,46.698435],[25.897522 ,46.692312],[25.894089 ,46.698435],[25.884476 ,46.689015],[25.909195 ,46.655092],[25.85907 ,46.651322],[25.784912 ,46.722918],[25.817871 ,46.754917],[25.828857 ,46.822617],[25.759506 ,46.844695],[25.761566 ,46.881784],[25.800018 ,46.914627],[25.804138 ,46.929634],[25.828171 ,46.924007],[25.84465 ,46.936667],[25.845337 ,46.952137],[25.865936 ,46.950262],[25.849457 ,46.960573],[25.843964 ,46.976505],[25.798645 ,46.963385],[25.769119 ,47.017248],[25.774612 ,47.021461],[25.74234 ,47.052347],[25.7341 ,47.072928],[25.65033 ,47.090696],[25.622864 ,47.094435],[25.595398 ,47.071992],[25.526733 ,47.077604],[25.518494 ,47.118738],[25.466309 ,47.133688],[25.422363 ,47.129951],[25.383911 ,47.092566],[25.301514 ,47.118738],[25.235596 ,47.088826],[25.19165 ,47.126213],[25.164185 ,47.129951],[25.139465 ,47.115],[25.094147 ,47.118738],[25.062561 ,47.135556],[25.057068 ,47.146766],[25.070801 ,47.16731],[25.026855 ,47.197178],[25.076294 ,47.253136],[25.026855 ,47.294134],[25.076294 ,47.312759],[25.065308 ,47.372315],[24.99939 ,47.409503],[25.092773 ,47.446665],[25.062561 ,47.452237],[25.043335 ,47.46895],[25.081787 ,47.483801],[25.081787 ,47.504214],[25.046082 ,47.504214],[25.029602 ,47.543164],[24.949951 ,47.595051],[25.048828 ,47.639485],[25.054321 ,47.657988],[24.945831 ,47.730087]]
+      }];    
+        /*Js Code for borders style*/
+        var romania_moldova_map_style = {
+        "color": "rgb(255, 2, 2)",/*8e8f8e*/
+        "weight": 9, /* set the weight of the line*/
+        "opacity": 0.65
+      };
+        
+     L.geoJSON(romania_moldova_borders,{
+          style:romania_moldova_map_style
+      }).addTo(maps);    
+        
+        
+        /*var popup = L.popup();
+        function findCoordinates(x){
+            popup
+            .setLatLng(x.latlng)
+            .setContent(x.latlng.toString())
+            .openOn(maps);
+        }
+         maps.on('click',findCoordinates);*/
+        </script>
+        <script>
+            $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+                event.preventDefault();
+                $(this).ekkoLightbox();
+            });
+        </script>
+   </body>
+</html>
